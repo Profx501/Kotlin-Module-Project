@@ -1,3 +1,6 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import ui.Menu
+import ui.MenuType
+
+fun main() {
+    Menu.showMenu(MenuType.ARCHIVE)
 }
