@@ -4,15 +4,15 @@ import model.Archive
 import model.Note
 
 class NoteSelectionScreen(
-    val archive: Archive?
+    val archive: Archive
 ) : Screen<Note> {
     override fun start(): Note? {
-        if (archive?.notes?.isEmpty() == true) {
+        if (archive.notes.isEmpty()) {
             println("[WARNING] Заметки пока пусты.")
             return null
         }
         println("Выбирете заметку: ")
-        archive?.notes?.forEachIndexed { index, note ->
+        archive.notes.forEachIndexed { index, note ->
             println("[${archive.name}]   ${index}. -> ${note.name}")
         }
         val numberNote = readln().toIntOrNull()
@@ -20,7 +20,7 @@ class NoteSelectionScreen(
             println("[WARNING] Номер заметки должен состоять из цифр.")
             return null
         }
-        if (archive?.notes?.indices?.contains(numberNote) != true) {
+        if (!archive.notes.indices.contains(numberNote)) {
             println(
                 "[WARNING] Номер заметки должен состоять из цифр от 0 до ${archive?.notes?.size}."
             )
