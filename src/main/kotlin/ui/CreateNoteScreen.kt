@@ -11,7 +11,7 @@ class CreateNoteScreen(
         println("Введите название заметки: ")
         val nameNote = readln()
         println("Введите текст: ")
-        val text = readln()
+        val text = readln().trim()
         if (nameNote.isEmpty() || text.isEmpty()) {
             println("[WARNING] Название заметки и текст не должны быть пустыми!!!")
             return
